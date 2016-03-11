@@ -3,8 +3,13 @@ Magento utility used for migrating magento settings between dev instances. Requi
 
 ### Installation
 Make sure that the required dpendancies are installed (see below). 
-You can use modgit:
-`modgit add mage-util-configuration git@github.com:flintdigital/mage-util-configuration.git`
+Use wget from the magento root:
+```shell
+wget https://github.com/flintdigital/mage-util-configuration/archive/master.zip
+unzip master
+mv mage-util-configuration-master/configuration .
+rm -Rf mage-util-configuration-master
+```
 
 ### Dependancies
 
@@ -29,10 +34,15 @@ Harris Street GitHub Repo: https://github.com/Zookal/HarrisStreet-ImpEx
 See this blog post for additional instructions: http://magerun.net/harrisstreet-impex-for-magento/
 
 ### Instructions
-First you will need to run this in either of your environments to export the web configuration.  
+First you will need to run the init.sh in the configuration folder. You may also want to change the name of  init.sh. 
 
 ```shell
-#Run this from your magento root
+cd configuration
+sh init.sh
+mv init.sh init.sh.bak
+```
+This is what the init looks like. 
+```shell
 cd base
 magerun hs:ccd:export --filePerNameSpace=y --include=web --filename=base
 cp base_web.yaml ../dev/dev_web.yaml
