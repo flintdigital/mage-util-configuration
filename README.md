@@ -9,6 +9,7 @@ wget https://github.com/flintdigital/mage-util-configuration/archive/master.zip
 unzip master
 mv mage-util-configuration-master/configuration .
 rm -Rf mage-util-configuration-master
+rm master
 ```
 
 ### Dependancies
